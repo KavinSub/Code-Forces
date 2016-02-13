@@ -8,7 +8,7 @@ public class Jabber{
 		String email = scan.nextLine();
 
 		// Do regex matching
-		String pattern = "^[\\w]{1,16}@((?:[\\w]{1,16}\\.)+[\\w]{1,16})(\\/[\\w]{1,16})?$";
+		String pattern = "^[\\w]{1,16}@((?:(?:[\\w]{1,16}\\.)+[\\w]{1,16})|(?:[\\w]{1,16}))(\\/[\\w]{1,16})?$";
 		Pattern r = Pattern.compile(pattern);
 
 		Matcher m = r.matcher(email);
