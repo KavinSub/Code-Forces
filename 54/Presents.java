@@ -6,24 +6,29 @@ public class Presents{
 		int n = scan.nextInt();
 		int k = scan.nextInt();
 
-		HashSet p = new HashSet();
+		// Array of presents
+		boolean[] presents = new boolean[n + 1];
+		for(int i = 0; i < 1; i++) presents[i] = false;
 
 		int c = scan.nextInt();
-		int[] h = new int[c];
 		for(int i = 0; i < c; i++){
-			int temp = scan.nextInt();
-			p.add(temp);
-			h[i] = temp;
+			int p = scan.nextInt();
+			presents[p] = true;
 		}
 
-		
-		int i = 0;
-		while(true){
-			i += k;
-			if(i > n) break;
-			p.add(i);
+		int count = 0;
+		for(int i = 1; i <= n; i++){
+			count += 1;
+			if(presents[i] == true) count = 0;
+			if(count == k){
+				presents[i] = true;
+				count = 0;
+			}
 		}
 
-		System.out.println(p.size());
+		int p = 0;
+		for(int i = 0; i < presents.length; i++) if(presents[i] == true) p += 1;
+
+		System.out.println(p);
 	}
 }
